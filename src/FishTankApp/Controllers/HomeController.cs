@@ -25,5 +25,12 @@ namespace FishTankApp.Controllers
             ViewBag.Title = "Fish tank dashboard.";
             return View(ViewModelService.GetDashboardViewModel());
         }
+
+        public IActionResult Feed(int foodAmount)
+        {
+            var model = ViewModelService.GetDashboardViewModel();
+            model.LastFed = $"{DateTime.Now.Hour}:{DateTime.Now.Minute}. Amount: {foodAmount}";
+            return View("Index", model);
+        }
     }
 }
