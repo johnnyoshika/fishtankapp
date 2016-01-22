@@ -26,6 +26,7 @@ namespace FishTankApp
         {
             services.AddMvc();
 
+            services.AddSingleton<IViewModelService, ViewModelService>();
             services.AddSingleton<ISensorDataService, SensorDataService>();
         }
 
