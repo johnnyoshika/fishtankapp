@@ -17,6 +17,8 @@ namespace FishTankApp
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+
             services.AddSingleton<ISensorDataService, SensorDataService>();
         }
 
@@ -25,16 +27,9 @@ namespace FishTankApp
         {
             app.UseIISPlatformHandler();
 
-            app.Use(async (context, next) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-                await next();
-            });
-
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World again!");
-            });
+            app.UseMvcWithDefaultRoute();
+            app.UseStaticFiles();
+            app.UseStatusCodePages();
         }
 
         // Entry point for the application.
