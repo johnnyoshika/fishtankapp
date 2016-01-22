@@ -4,10 +4,22 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <environment names="Developement">
+        <link asp-href-include="~/css/*.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging, Production">
+        <link href="~/css/min/site.min.css" rel="stylesheet" />
+    </environment>
 </head>
 <body>
     <div>
         @RenderBody()
     </div>
+    <environment names="Developement">
+        <script asp-src-include="~/js/*.js"></script>
+    </environment>
+    <environment names="Staging, Production">
+        <script src="~/js/min/site.min.js"></script>
+    </environment>
 </body>
 </html>
