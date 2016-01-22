@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <environment names="Developement">
+    <environment names="Development">
         <link asp-href-include="~/css/*.css" rel="stylesheet" />
     </environment>
     <environment names="Staging, Production">
@@ -13,9 +13,15 @@
 </head>
 <body>
     <div>
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;">
+            <div class="navbar-header">
+                <div class="navbar-brand">My Fish Tank</div>
+            </div>
+            <img height="50" width="1000" alt="Golfish background" class="pull-right" src="~/img/goldfish.jpg" asp-append-version="true" />
+        </nav>
         @RenderBody()
     </div>
-    <environment names="Developement">
+    <environment names="Development">
         <script asp-src-include="~/js/*.js"></script>
     </environment>
     <environment names="Staging, Production">
