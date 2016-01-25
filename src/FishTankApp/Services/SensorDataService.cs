@@ -30,7 +30,7 @@ namespace FishTankApp.Services
 
         public IEnumerable<IntHistory> GetFishMotionPercentageHistory()
         {
-            return _fishMotionHistory ?? (_fishMotionHistory = GetHistory(30, 50));
+            return _fishMotionHistory ?? (_fishMotionHistory = GetHistory(0, 100));
         }
 
         public IntHistory GetWaterOpacityPercentage()
@@ -40,7 +40,7 @@ namespace FishTankApp.Services
 
         public IEnumerable<IntHistory> GetWaterOpacityPercentageHistory()
         {
-            return _waterOpacityHistory ?? (_waterOpacityHistory = GetHistory(10, 20));
+            return _waterOpacityHistory ?? (_waterOpacityHistory = GetHistory(0, 100));
         }
 
         public IntHistory GetLightIntensityLumens()
@@ -50,7 +50,7 @@ namespace FishTankApp.Services
 
         public IEnumerable<IntHistory> GetLightIntensityLumensHistory()
         {
-            return _lightOpacityHistory ?? (_lightOpacityHistory = GetHistory(200, 220));
+            return _lightOpacityHistory ?? (_lightOpacityHistory = GetHistory(0, 5000));
         }
 
         IEnumerable<IntHistory> GetHistory(int min, int max)
